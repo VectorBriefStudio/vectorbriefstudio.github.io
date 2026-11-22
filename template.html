@@ -37,6 +37,7 @@ h1{font-weight:500;font-size:clamp(30px,6vw,46px);line-height:1.08;letter-spacin
 .links b{font-weight:500;font-size:15px;line-height:1.25}
 .links a span{color:var(--muted);font-size:12.5px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .links a:hover{border-color:var(--blue)}
+.links a:last-child:nth-child(odd){grid-column:1 / -1}
 .links svg{width:18px;height:18px}
 .kit-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px}
 h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0}
@@ -90,7 +91,7 @@ footer p{margin:0 0 8px}
   .top{margin-bottom:44px}
   .hero{margin-bottom:52px}
   .links{display:flex;justify-content:center}
-  .links a{min-width:200px}
+  .links a{min-width:168px}
   .slide{flex-basis:100%;padding:28px;grid-template-columns:232px minmax(0,1fr);grid-template-areas:"poster meta" "poster take" "poster body";grid-template-rows:auto auto 1fr;column-gap:36px;row-gap:16px}
   .slide h3{font-size:28px;line-height:1.15}
   .take{font-size:18px}
@@ -104,8 +105,8 @@ footer p{margin:0 0 8px}
 <main>
   <header class="top"><svg class="mark" viewBox="0 0 96 96" fill="none" aria-hidden="true"><rect x="2" y="2" width="92" height="92" rx="6" stroke="#1B3139" stroke-width="4"/><path d="M26 70 L66 30" stroke="#2272B4" stroke-width="8" stroke-linecap="round"/><path d="M44 30 H66 V52" stroke="#2272B4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wordmark">Vector Brief</span></header>
   <section class="hero">
-    <h1>AI coding, one <span class="nw">40-second</span> brief at a time.</h1>
-    <p class="lede">Every config from the Shorts, ready to copy. Each one is checked against the official docs on the date shown.</p>
+    <h1>AI and the systems behind it, <span class="nw">one brief</span> at a time.</h1>
+    <p class="lede">Every config from the videos, ready to copy. Each one is checked against the official docs on the date shown.</p>
     <nav class="links" aria-label="Channels">
       {{links}}
     </nav>

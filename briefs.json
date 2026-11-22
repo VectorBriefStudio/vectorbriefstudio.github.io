@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Vector Brief: copy-paste configs from the Shorts",
-    "description": "40-second briefs on AI coding tools. Every config from the videos, ready to copy, each checked against the official docs.",
+    "description": "Visual briefs on AI and the systems behind it. Every config from the videos, ready to copy, each checked against the official docs.",
     "url": "https://vectorbriefstudio.github.io/",
     "repo": "https://github.com/VectorBriefStudio/vectorbriefstudio.github.io",
     "email": "vectorlogic.yt@gmail.com"
@@ -18,6 +18,12 @@
       "label": "Instagram",
       "sub": "@vectorbriefstudio",
       "href": "https://www.instagram.com/vectorbriefstudio/"
+    },
+    {
+      "icon": "facebook",
+      "label": "Facebook",
+      "sub": "Vector Brief",
+      "href": "https://www.facebook.com/profile.php?id=61596500894799"
     },
     {
       "icon": "github",

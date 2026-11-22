@@ -1,6 +1,6 @@
 # Vector Brief kit
 
-Copy-paste configs from the Vector Brief Shorts on AI coding tools. Each one is checked against the official docs on the date shown.
+Copy-paste configs from Vector Brief videos: visual briefs on AI and the systems behind it. Each one is checked against the official docs on the date shown.
 
 **Live page:** https://vectorbriefstudio.github.io/
 
