@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Vector Brief: copy-paste configs from the Shorts",
-    "description": "40-second briefs on Claude Code and the Claude API. Every config from the videos, ready to copy, each checked against the official docs.",
+    "description": "40-second briefs on AI coding tools. Every config from the videos, ready to copy, each checked against the official docs.",
     "url": "https://vectorbriefstudio.github.io/",
     "repo": "https://github.com/VectorBriefStudio/vectorbriefstudio.github.io",
     "email": "vectorlogic.yt@gmail.com"
