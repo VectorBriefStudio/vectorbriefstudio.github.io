@@ -107,7 +107,7 @@
       "title": "Run parallel agents without overwriting each other",
       "takeaway": "Two sessions in one folder share one working copy. Give each session its own worktree.",
       "verified": "2026-11-21",
-      "video": "https://www.youtube.com/@VectorBriefStudio/shorts",
+      "video": "https://www.youtube.com/shorts/ckAIrimH3og",
       "cover": "covers/03.jpg",
       "accent": "#2272B4",
       "snippets": [
