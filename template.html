@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{url}}">
+<meta property="og:image" content="{{url}}og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F9F7F4">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F9F7F4;--card:#FFFFFF;--oat:#EEEDE9;--ink:#1B3139;--muted:#5A6F77;--hair:#DCE0E2;--blue:#2272B4;--accent:var(--blue);--mono:'DM Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);background-color:var(--canvas);background-image:radial-gradient(circle,rgba(220,224,226,.35) 1.5px,transparent 1.6px);background-size:24px 24px;font:400 16px/1.55 'DM Sans',system-ui,sans-serif}
+main{max-width:1040px;margin:0 auto;padding:28px 16px 48px}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.top{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 32px}
+.mark{width:22px;height:22px}
+.wordmark{color:var(--muted);font-size:13px;font-weight:500;letter-spacing:.28em;text-transform:uppercase}
+.hero{max-width:660px;margin:0 auto 36px;text-align:center}
+h1{font-weight:500;font-size:clamp(30px,6vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0 0 12px}
+.nw{white-space:nowrap}
+.lede{color:var(--muted);margin:0 auto 22px;max-width:520px}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.links a{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;align-items:center;text-align:left;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:10px 12px;color:var(--ink);text-decoration:none}
+.links a svg{grid-row:1 / span 2}
+.links b{font-weight:500;font-size:15px;line-height:1.25}
+.links a span{color:var(--muted);font-size:12.5px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.links a:hover{border-color:var(--blue)}
+.links svg{width:18px;height:18px}
+.kit-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px}
+h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0}
+.ctrl{display:flex;align-items:center;gap:6px}
+.ctrl button{width:40px;height:40px;display:grid;place-items:center;background:var(--card);border:1px solid var(--hair);border-radius:6px;color:var(--ink);cursor:pointer;padding:0}
+.ctrl button svg{width:20px;height:20px}
+.ctrl button:hover:not(:disabled){border-color:var(--blue);color:var(--blue)}
+.ctrl button:disabled{opacity:.35;cursor:default}
+.count{font:500 13px var(--mono);color:var(--muted);min-width:48px;text-align:center}
+.tabs{position:relative;display:flex;gap:6px;overflow-x:auto;margin:0 0 14px;scrollbar-width:none}
+.tabs button{flex:none;display:flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--hair);border-radius:6px;padding:7px 12px;font:500 14px 'DM Sans',system-ui,sans-serif;color:var(--muted);cursor:pointer}
+.tabs .n{font:500 12px var(--mono)}
+.tabs .n::before{content:'';display:inline-block;width:7px;height:7px;margin-right:7px;vertical-align:1px;background:var(--hair)}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);border-color:var(--ink)}
+.tabs button[aria-selected=true] .n::before{background:var(--accent)}
+.track{position:relative;display:flex;align-items:flex-start;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;transition:height .35s cubic-bezier(.6,0,.2,1);border-radius:6px}
+.track::-webkit-scrollbar,.tabs::-webkit-scrollbar{display:none}
+.slide{flex:0 0 calc(100% - 24px);scroll-snap-align:start;min-width:0;background:var(--card);border:1px solid var(--hair);border-top:3px solid var(--accent);border-radius:6px;padding:18px;display:grid;grid-template-columns:84px minmax(0,1fr);grid-template-areas:"poster meta" "take take" "body body";column-gap:14px;row-gap:14px;align-items:start}
+.poster{grid-area:poster;position:relative;display:block;aspect-ratio:9/16;border:1px solid var(--hair);border-radius:6px;overflow:hidden;background:var(--canvas)}
+.poster img{width:100%;height:100%;object-fit:cover;display:block}
+.poster .play{position:absolute;left:5px;bottom:5px;display:flex;align-items:center;gap:4px;background:var(--ink);color:var(--canvas);font:500 11px/1 'DM Sans',system-ui,sans-serif;padding:5px 7px;border-radius:4px}
+.poster .play svg{width:9px;height:9px}
+.poster:hover{border-color:var(--accent)}
+.meta{grid-area:meta;min-width:0}
+.kicker{font:500 11.5px/1.45 var(--mono);color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.kicker::before{content:'';display:inline-block;width:7px;height:7px;margin-right:8px;vertical-align:1px;background:var(--accent)}
+.slide h3{font-size:20px;font-weight:500;line-height:1.22;margin:0}
+.take{grid-area:take;margin:0;font-size:17px;line-height:1.45;padding-left:12px;border-left:2px solid var(--accent)}
+.body{grid-area:body;min-width:0}
+.lead-in{font-size:15px;margin:0 0 6px}
+.snip{border:1px solid var(--hair);border-radius:6px;margin:0 0 14px;overflow:hidden}
+.snip-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 6px 6px 12px;border-bottom:1px solid var(--hair)}
+.path{font:400 13px/1.4 var(--mono);color:var(--muted);overflow-wrap:anywhere}
+.copy{flex:none;font:500 13px 'DM Sans',system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--hair);border-radius:4px;padding:6px 12px;cursor:pointer}
+.copy:hover{border-color:var(--blue);color:var(--blue)}
+pre{margin:0;padding:14px 12px;background:var(--oat);white-space:pre-wrap;overflow-wrap:anywhere;font:400 13.5px/1.55 var(--mono);color:var(--ink)}
+code{overflow-wrap:anywhere;font-family:var(--mono);font-size:.88em;background:var(--oat);padding:1px 4px;border-radius:4px}
+pre code{background:none;padding:0;font-size:inherit}
+.fine{border-top:1px solid var(--hair);padding:12px 0 0;margin:4px 0 12px}
+.fine summary{cursor:pointer;font-weight:500;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.fine summary::-webkit-details-marker{display:none}
+.fine summary::after{content:'+';font:400 18px var(--mono);color:var(--muted)}
+.fine[open] summary::after{content:'\2212'}
+.fine ul{margin:10px 0 0;padding-left:18px}
+.fine li{font-size:15px;margin:0 0 6px}
+.docs{font-size:14px;color:var(--muted);margin:0;border-top:1px solid var(--hair);padding-top:12px}
+footer{color:var(--muted);font-size:14px;margin-top:40px;border-top:1px solid var(--hair);padding-top:16px;max-width:660px}
+footer p{margin:0 0 8px}
+@media (min-width:760px){
+  main{padding:44px 28px 64px}
+  .top{margin-bottom:44px}
+  .hero{margin-bottom:52px}
+  .links{display:flex;justify-content:center}
+  .links a{min-width:200px}
+  .slide{flex-basis:100%;padding:28px;grid-template-columns:232px minmax(0,1fr);grid-template-areas:"poster meta" "poster take" "poster body";grid-template-rows:auto auto 1fr;column-gap:36px;row-gap:16px}
+  .slide h3{font-size:28px;line-height:1.15}
+  .take{font-size:18px}
+  .poster .play{left:10px;bottom:10px;font-size:13px;padding:7px 10px}
+  .poster .play svg{width:11px;height:11px}
+}
+@media (prefers-reduced-motion:reduce){.track{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <header class="top"><svg class="mark" viewBox="0 0 96 96" fill="none" aria-hidden="true"><rect x="2" y="2" width="92" height="92" rx="6" stroke="#1B3139" stroke-width="4"/><path d="M26 70 L66 30" stroke="#2272B4" stroke-width="8" stroke-linecap="round"/><path d="M44 30 H66 V52" stroke="#2272B4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wordmark">Vector Brief</span></header>
+  <section class="hero">
+    <h1>Claude Code, one <span class="nw">40-second</span> brief at a time.</h1>
+    <p class="lede">Every config from the Shorts, ready to copy. Each one is checked against the official docs on the date shown.</p>
+    <nav class="links" aria-label="Channels">
+      {{links}}
+    </nav>
+  </section>
+  <section class="kit" aria-roledescription="carousel" aria-label="The kit">
+    <div class="kit-head">
+      <h2>The kit</h2>
+      <div class="ctrl">
+        <button type="button" class="prev" aria-label="Previous brief" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <span class="count" aria-live="polite">{{count}}</span>
+        <button type="button" class="next" aria-label="Next brief"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Briefs">
+      {{tabs}}
+    </div>
+    <div class="track" tabindex="0" aria-label="Briefs: swipe, or use the arrow keys">{{slides}}
+    </div>
+  </section>
+  <footer>
+    <p>Sponsorships and business: <a href="mailto:{{email}}">{{email}}</a></p>
+    <p>Vector Brief is an independent channel, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic.</p>
+    <p>No sponsors yet. If that changes, paid videos will say so out loud and on screen.</p>
+    <p>Configs are free to use under <a href="{{repo}}/blob/main/LICENSE">MIT-0</a>. <a href="{{repo}}">Source on GitHub</a>.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  var track = document.querySelector('.track');
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.slide'));
+  var tablist = document.querySelector('.tabs');
+  var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role=tab]'));
+  var prev = document.querySelector('.ctrl .prev');
+  var next = document.querySelector('.ctrl .next');
+  var count = document.querySelector('.ctrl .count');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur = -1, timer = 0;
+  function offset(i) { return slides[i].offsetLeft - slides[0].offsetLeft; }
+  function indexNow() {
+    if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 2) return slides.length - 1;
+    var best = 0, dist = Infinity;
+    for (var i = 0; i < slides.length; i++) {
+      var d = Math.abs(offset(i) - track.scrollLeft);
+      if (d < dist) { dist = d; best = i; }
+    }
+    return best;
+  }
+  function fit() { if (cur >= 0) track.style.height = slides[cur].offsetHeight + 'px'; }
+  function set(i, hash) {
+    if (i === cur) return;
+    cur = i;
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+    count.textContent = (i + 1) + ' / ' + slides.length;
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+    tablist.scrollTo({ left: Math.max(0, tabs[i].offsetLeft - 24), behavior: reduce ? 'auto' : 'smooth' });
+    fit();
+    if (hash && history.replaceState) history.replaceState(null, '', '#' + slides[i].id);
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    track.scrollTo({ left: offset(i), behavior: reduce ? 'auto' : 'smooth' });
+    set(i, true);
+  }
+  track.addEventListener('scroll', function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () { set(indexNow(), true); }, 90);
+  }, { passive: true });
+  tabs.forEach(function (t, k) { t.addEventListener('click', function () { go(k); }); });
+  prev.addEventListener('click', function () { go(cur - 1); });
+  next.addEventListener('click', function () { go(cur + 1); });
+  track.addEventListener('keydown', function (e) {
+    if (e.target !== track) return;
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+  });
+  tablist.addEventListener('keydown', function (e) {
+    var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    if (!d) return;
+    e.preventDefault();
+    go(cur + d);
+    tabs[cur].focus();
+  });
+  window.addEventListener('hashchange', function () {
+    slides.forEach(function (s, k) { if ('#' + s.id === location.hash) go(k); });
+  });
+  window.addEventListener('resize', function () { track.scrollLeft = offset(cur); fit(); });
+  if ('ResizeObserver' in window) { var ro = new ResizeObserver(fit); slides.forEach(function (s) { ro.observe(s); }); }
+  var start = 0;
+  slides.forEach(function (s, k) { if ('#' + s.id === location.hash) start = k; });
+  set(start, false);
+  if (start) track.scrollLeft = offset(start);
+
+  document.querySelectorAll('button.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var pre = document.getElementById(b.dataset.target);
+      var done = function (label) { b.textContent = label; setTimeout(function () { b.textContent = 'Copy'; }, 1600); };
+      var select = function () { var r = document.createRange(); r.selectNodeContents(pre); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected'); };
+      if (navigator.clipboard) navigator.clipboard.writeText(pre.textContent).then(function () { done('Copied'); }, select);
+      else select();
+    });
+  });
+})();
+</script>
+</body>
+</html>

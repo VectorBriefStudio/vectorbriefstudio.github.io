@@ -1,0 +1,10 @@
+<role>
+Senior TypeScript engineer.
+</role>
+<context>
+{{paste your files here}}
+</context>
+<constraints>
+Keep public APIs unchanged.
+Reply with a unified diff.
+</constraints>

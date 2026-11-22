@@ -1,0 +1,143 @@
+{
+  "site": {
+    "title": "Vector Brief: copy-paste configs from the Shorts",
+    "description": "40-second briefs on Claude Code and the Claude API. Every config from the videos, ready to copy, each checked against the official docs.",
+    "url": "https://vectorbriefstudio.github.io/",
+    "repo": "https://github.com/VectorBriefStudio/vectorbriefstudio.github.io",
+    "email": "vectorlogic.yt@gmail.com"
+  },
+  "links": [
+    {
+      "icon": "youtube",
+      "label": "YouTube",
+      "sub": "@VectorBriefStudio",
+      "href": "https://www.youtube.com/@VectorBriefStudio"
+    },
+    {
+      "icon": "instagram",
+      "label": "Instagram",
+      "sub": "@vectorbriefstudio",
+      "href": "https://www.instagram.com/vectorbriefstudio/"
+    },
+    {
+      "icon": "github",
+      "label": "GitHub",
+      "sub": "VectorBriefStudio",
+      "href": "https://github.com/VectorBriefStudio"
+    },
+    {
+      "icon": "email",
+      "label": "Email",
+      "sub": "business",
+      "href": "mailto:vectorlogic.yt@gmail.com"
+    }
+  ],
+  "briefs": [
+    {
+      "id": "xml-tags",
+      "n": "01",
+      "short": "XML tags",
+      "title": "Claude ignoring your rules? Use these 3 XML tags",
+      "takeaway": "Give your rules and your data their own tags, so Claude can parse the prompt unambiguously.",
+      "verified": "2026-11-21",
+      "video": "https://www.youtube.com/shorts/1QTXHRLLXlk",
+      "cover": "covers/01.jpg",
+      "accent": "#2272B4",
+      "snippets": [
+        {
+          "file": "01-xml-tags/prompt.xml",
+          "where": "prompt template",
+          "intro": "Paste it, fill it in, and keep data inside `context`."
+        }
+      ],
+      "notes": [
+        "Use descriptive tag names, and keep them the same across prompts.",
+        "Nest tags when the content has a natural hierarchy."
+      ],
+      "docs": [
+        {
+          "label": "Prompting best practices",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+        }
+      ]
+    },
+    {
+      "id": "prompt-caching",
+      "n": "02",
+      "short": "Cache TTL",
+      "title": "Keep Claude Code’s cache warm for an hour",
+      "takeaway": "API-key sessions and all subagents cache for 5 minutes. One setting makes it an hour.",
+      "verified": "2026-11-21",
+      "video": "https://www.youtube.com/shorts/AWfYSEN0Mts",
+      "cover": "covers/02.jpg",
+      "accent": "#2272B4",
+      "snippets": [
+        {
+          "file": "02-prompt-caching/settings.json",
+          "where": "~/.claude/settings.json",
+          "intro": "Needs Claude Code v2.1.242 or later."
+        },
+        {
+          "file": "02-prompt-caching/verify.sh",
+          "where": "terminal",
+          "intro": "Check that it worked:"
+        }
+      ],
+      "notes": [
+        "`promptCacheTtl` covers the main conversation. `subagentPromptCacheTtl` covers subagents, compaction and other background requests.",
+        "On a Claude subscription, within your plan’s usage, the main conversation already gets a 1-hour cache. With an API key or a cloud provider it gets 5 minutes.",
+        "1-hour cache writes bill at 2x base input, against 1.25x for 5 minutes. It pays off when you often idle past five minutes.",
+        "Same thing as env vars: `CLAUDE_CODE_PROMPT_CACHE_TTL=1h` and `CLAUDE_CODE_SUBAGENT_PROMPT_CACHE_TTL=1h`."
+      ],
+      "docs": [
+        {
+          "label": "Prompt caching (API)",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+        },
+        {
+          "label": "Prompt caching (Claude Code)",
+          "url": "https://code.claude.com/docs/en/prompt-caching"
+        }
+      ]
+    },
+    {
+      "id": "worktrees",
+      "n": "03",
+      "short": "Worktrees",
+      "title": "Run parallel agents without overwriting each other",
+      "takeaway": "Two sessions in one folder share one working copy. Give each session its own worktree.",
+      "verified": "2026-11-21",
+      "video": "https://www.youtube.com/@VectorBriefStudio/shorts",
+      "cover": "covers/03.jpg",
+      "accent": "#2272B4",
+      "snippets": [
+        {
+          "file": "03-worktrees/commands.sh",
+          "where": "terminal",
+          "intro": "`claude --worktree auth` creates `.claude/worktrees/auth/` on a new branch named `worktree-auth`."
+        },
+        {
+          "file": "03-worktrees/.worktreeinclude",
+          "where": ".worktreeinclude (project root)",
+          "intro": "Copies gitignored files into every new worktree:"
+        },
+        {
+          "file": "03-worktrees/.claude/agents/refactorer.md",
+          "where": ".claude/agents/refactorer.md",
+          "intro": "Gives a subagent its own worktree every time:"
+        }
+      ],
+      "notes": [
+        "A subagent’s temporary worktree is removed automatically if it finishes without changes.",
+        "Add `.claude/worktrees/` to your `.gitignore`.",
+        "New worktrees branch from your default branch. Set `\"worktree\": {\"baseRef\": \"head\"}` in settings.json to branch from your current work instead."
+      ],
+      "docs": [
+        {
+          "label": "Worktrees",
+          "url": "https://code.claude.com/docs/en/worktrees"
+        }
+      ]
+    }
+  ]
+}
