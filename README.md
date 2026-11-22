@@ -9,6 +9,7 @@ Copy-paste configs from the Vector Brief Shorts on Claude Code and the Claude AP
 | 01 | Use 3 XML tags | [01-xml-tags](01-xml-tags) | [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) |
 | 02 | Keep the cache warm for an hour | [02-prompt-caching](02-prompt-caching) | [API](https://platform.claude.com/docs/en/build-with-claude/prompt-caching), [Claude Code](https://code.claude.com/docs/en/prompt-caching) |
 | 03 | Parallel agents with worktrees | [03-worktrees](03-worktrees) | [Worktrees](https://code.claude.com/docs/en/worktrees) |
+| 04 | What loads before you type | [04-session-context](04-session-context) | [Context window](https://code.claude.com/docs/en/context-window), [Memory](https://code.claude.com/docs/en/memory) |
 
 Watch: [YouTube](https://www.youtube.com/@VectorBriefStudio) · [Instagram](https://www.instagram.com/vectorbriefstudio/) · Business: vectorlogic.yt@gmail.com
 

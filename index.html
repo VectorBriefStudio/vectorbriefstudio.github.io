@@ -118,18 +118,35 @@ footer p{margin:0 0 8px}
       <h2>The kit</h2>
       <div class="ctrl">
         <button type="button" class="prev" aria-label="Previous brief" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <span class="count" aria-live="polite">1 / 3</span>
+        <span class="count" aria-live="polite">1 / 4</span>
         <button type="button" class="next" aria-label="Next brief"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
     <div class="tabs" role="tablist" aria-label="Briefs">
-      <button type="button" role="tab" id="tab-worktrees" aria-controls="worktrees" aria-selected="true" style="--accent:#2272B4"><span class="n">03</span>Worktrees</button>
+      <button type="button" role="tab" id="tab-session-context" aria-controls="session-context" aria-selected="true" style="--accent:#5856D6"><span class="n">04</span>Context</button>
+      <button type="button" role="tab" id="tab-worktrees" aria-controls="worktrees" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">03</span>Worktrees</button>
       <button type="button" role="tab" id="tab-prompt-caching" aria-controls="prompt-caching" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">02</span>Cache TTL</button>
       <button type="button" role="tab" id="tab-xml-tags" aria-controls="xml-tags" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">01</span>XML tags</button>
     </div>
     <div class="track" tabindex="0" aria-label="Briefs: swipe, or use the arrow keys">
+      <article class="slide" id="session-context" role="tabpanel" aria-labelledby="tab-session-context" aria-roledescription="slide" style="--accent:#5856D6">
+        <a class="poster" href="https://www.youtube.com/shorts/eOJiTJ4XXdU" aria-label="Watch brief 04 on YouTube"><img src="covers/04.jpg" width="360" height="640" alt="" loading="eager"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
+        <div class="meta"><p class="kicker">Brief 04</p><h3>Your Claude Code session isn't empty</h3></div>
+        <p class="take">CLAUDE.md, auto memory, MCP tool names and skill descriptions load before you type. Check <code>/context</code>.</p>
+        <div class="body"><p class="lead-in">Before you blame the model, check what is already in context:</p><div class="snip"><div class="snip-head"><span class="path">checklist</span><button class="copy" type="button" data-target="s-session-context-0">Copy</button></div><pre id="s-session-context-0"><code>Before you blame the model, check what's already in context:
+
+1. Run /context for a live breakdown by category, including which CLAUDE.md and memory files loaded.
+2. Keep each CLAUDE.md under 200 lines.
+3. Move reference material into skills. Only descriptions load at start; full content loads when used.
+4. Auto memory loads the first 200 lines or 25 KB of MEMORY.md, whichever comes first. Keep it an index.
+5. For skills you only run yourself, set disable-model-invocation: true so the description stays out of context.</code></pre></div><p class="lead-in">Keep a skill you only run yourself out of context:</p><div class="snip"><div class="snip-head"><span class="path">.claude/skills/deploy/SKILL.md</span><button class="copy" type="button" data-target="s-session-context-1">Copy</button></div><pre id="s-session-context-1"><code>---
+name: deploy
+description: Deploy the app to production
+disable-model-invocation: true
+---</code></pre></div><details class="fine"><summary>Fine print</summary><ul><li>Only your user and project CLAUDE.md load at session start. CLAUDE.md files in subfolders load when Claude works there.</li><li>MCP tool names and server instructions load at start; full tool schemas stay deferred until a tool is used.</li><li>The 7,850-token figure in the video is the docs’ illustrative example session. Your numbers depend on your setup.</li></ul></details><p class="docs">Checked against the official docs on 2026-11-22: <a href="https://code.claude.com/docs/en/context-window">Context window</a> · <a href="https://code.claude.com/docs/en/memory">Memory</a> · <a href="https://code.claude.com/docs/en/features-overview">Features overview</a></p></div>
+      </article>
       <article class="slide" id="worktrees" role="tabpanel" aria-labelledby="tab-worktrees" aria-roledescription="slide" style="--accent:#2272B4">
-        <a class="poster" href="https://www.youtube.com/shorts/ckAIrimH3og" aria-label="Watch brief 03 on YouTube"><img src="covers/03.jpg" width="360" height="640" alt="" loading="eager"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
+        <a class="poster" href="https://www.youtube.com/shorts/ckAIrimH3og" aria-label="Watch brief 03 on YouTube"><img src="covers/03.jpg" width="360" height="640" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
         <div class="meta"><p class="kicker">Brief 03</p><h3>Run parallel agents without overwriting each other</h3></div>
         <p class="take">Two sessions in one folder share one working copy. Give each session its own worktree.</p>
         <div class="body"><p class="lead-in"><code>claude --worktree auth</code> creates <code>.claude/worktrees/auth/</code> on a new branch named <code>worktree-auth</code>.</p><div class="snip"><div class="snip-head"><span class="path">terminal</span><button class="copy" type="button" data-target="s-worktrees-0">Copy</button></div><pre id="s-worktrees-0"><code># one isolated session per task, each in its own terminal

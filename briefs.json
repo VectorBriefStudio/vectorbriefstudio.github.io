@@ -138,6 +138,48 @@
           "url": "https://code.claude.com/docs/en/worktrees"
         }
       ]
+    },
+    {
+      "id": "session-context",
+      "n": "04",
+      "short": "Context",
+      "title": "Your Claude Code session isn't empty",
+      "takeaway": "CLAUDE.md, auto memory, MCP tool names and skill descriptions load before you type. Check `/context`.",
+      "verified": "2026-11-22",
+      "video": "https://www.youtube.com/shorts/eOJiTJ4XXdU",
+      "cover": "covers/04.jpg",
+      "accent": "#5856D6",
+      "snippets": [
+        {
+          "file": "04-session-context/checklist.md",
+          "where": "checklist",
+          "intro": "Before you blame the model, check what is already in context:"
+        },
+        {
+          "file": "04-session-context/SKILL.md",
+          "where": ".claude/skills/deploy/SKILL.md",
+          "intro": "Keep a skill you only run yourself out of context:"
+        }
+      ],
+      "notes": [
+        "Only your user and project CLAUDE.md load at session start. CLAUDE.md files in subfolders load when Claude works there.",
+        "MCP tool names and server instructions load at start; full tool schemas stay deferred until a tool is used.",
+        "The 7,850-token figure in the video is the docs’ illustrative example session. Your numbers depend on your setup."
+      ],
+      "docs": [
+        {
+          "label": "Context window",
+          "url": "https://code.claude.com/docs/en/context-window"
+        },
+        {
+          "label": "Memory",
+          "url": "https://code.claude.com/docs/en/memory"
+        },
+        {
+          "label": "Features overview",
+          "url": "https://code.claude.com/docs/en/features-overview"
+        }
+      ]
     }
   ]
 }
