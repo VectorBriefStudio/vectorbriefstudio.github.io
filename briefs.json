@@ -186,6 +186,45 @@
           "url": "https://code.claude.com/docs/en/features-overview"
         }
       ]
+    },
+    {
+      "id": "dont-ask-again",
+      "n": "05",
+      "short": "Don’t ask again",
+      "title": "Claude Code’s “Don’t ask again” writes a file",
+      "takeaway": "Each “Yes, and don’t ask again” becomes an allow rule in `.claude/settings.local.json` at the repo root.",
+      "verified": "2026-11-23",
+      "video": "https://www.youtube.com/shorts/y0d8X1Lf--s",
+      "cover": "covers/05.jpg",
+      "accent": "#2272B4",
+      "snippets": [
+        {
+          "file": "05-dont-ask-again/check.sh",
+          "where": "terminal",
+          "intro": "Check where your approvals went:"
+        },
+        {
+          "file": "05-dont-ask-again/gitignore.txt",
+          "where": ".gitignore (repo root)",
+          "intro": "Created the file by hand? Ignore it yourself:"
+        }
+      ],
+      "notes": [
+        "The rule applies to every session in the repo, including subdirectories and worktrees.",
+        "The first time Claude Code writes the file in a repo that doesn’t already ignore it, it adds `**/.claude/settings.local.json` to your global git excludes.",
+        "Rules are plain command text. Keep tokens out of commands you approve for good.",
+        "Run `/permissions` to see every rule and the settings file it came from."
+      ],
+      "docs": [
+        {
+          "label": "Permissions",
+          "url": "https://code.claude.com/docs/en/permissions"
+        },
+        {
+          "label": "Settings",
+          "url": "https://code.claude.com/docs/en/settings"
+        }
+      ]
     }
   ]
 }
