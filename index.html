@@ -120,20 +120,47 @@ footer p{margin:0 0 8px}
       <h2>The kit</h2>
       <div class="ctrl">
         <button type="button" class="prev" aria-label="Previous brief" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <span class="count" aria-live="polite">1 / 5</span>
+        <span class="count" aria-live="polite">1 / 6</span>
         <button type="button" class="next" aria-label="Next brief"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
     <div class="tabs" role="tablist" aria-label="Briefs">
-      <button type="button" role="tab" id="tab-dont-ask-again" aria-controls="dont-ask-again" aria-selected="true" style="--accent:#2272B4"><span class="n">05</span>Don’t ask again</button>
+      <button type="button" role="tab" id="tab-hooks-enforce" aria-controls="hooks-enforce" aria-selected="true" style="--accent:#AF52DE"><span class="n">06</span>Hooks</button>
+      <button type="button" role="tab" id="tab-dont-ask-again" aria-controls="dont-ask-again" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">05</span>Don’t ask again</button>
       <button type="button" role="tab" id="tab-session-context" aria-controls="session-context" aria-selected="false" tabindex="-1" style="--accent:#5856D6"><span class="n">04</span>Context</button>
       <button type="button" role="tab" id="tab-worktrees" aria-controls="worktrees" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">03</span>Worktrees</button>
       <button type="button" role="tab" id="tab-prompt-caching" aria-controls="prompt-caching" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">02</span>Cache TTL</button>
       <button type="button" role="tab" id="tab-xml-tags" aria-controls="xml-tags" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">01</span>XML tags</button>
     </div>
     <div class="track" tabindex="0" aria-label="Briefs: swipe, or use the arrow keys">
+      <article class="slide" id="hooks-enforce" role="tabpanel" aria-labelledby="tab-hooks-enforce" aria-roledescription="slide" style="--accent:#AF52DE">
+        <a class="poster" href="https://www.youtube.com/shorts/qzJ8n1p0dl4" aria-label="Watch brief 06 on YouTube"><img src="covers/06.jpg" width="360" height="640" alt="" loading="eager"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
+        <div class="meta"><p class="kicker">Brief 06</p><h3>A rule in CLAUDE.md isn’t a rule</h3></div>
+        <p class="take">CLAUDE.md is context Claude tries to follow. A PreToolUse hook blocks the action, in every permission mode.</p>
+        <div class="body"><p class="lead-in">Run a check before every Bash command:</p><div class="snip"><div class="snip-head"><span class="path">.claude/settings.json</span><button class="copy" type="button" data-target="s-hooks-enforce-0">Copy</button></div><pre id="s-hooks-enforce-0"><code>{
+  &quot;hooks&quot;: {
+    &quot;PreToolUse&quot;: [
+      {
+        &quot;matcher&quot;: &quot;Bash&quot;,
+        &quot;hooks&quot;: [
+          {
+            &quot;type&quot;: &quot;command&quot;,
+            &quot;command&quot;: &quot;\&quot;$CLAUDE_PROJECT_DIR\&quot;/.claude/hooks/block-rm-rf.sh&quot;
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre></div><p class="lead-in">Save it and run <code>chmod +x</code> on it. Exit 2 blocks the call and sends your message to Claude.</p><div class="snip"><div class="snip-head"><span class="path">.claude/hooks/block-rm-rf.sh</span><button class="copy" type="button" data-target="s-hooks-enforce-1">Copy</button></div><pre id="s-hooks-enforce-1"><code>#!/bin/bash
+COMMAND=$(jq -r '.tool_input.command')
+if echo &quot;$COMMAND&quot; | grep -q &quot;rm -rf&quot;; then
+  echo &quot;Blocked: rm -rf isn't allowed&quot; &gt;&amp;2
+  exit 2
+fi
+exit 0</code></pre></div><details class="fine"><summary>Fine print</summary><ul><li>Exit 0 hands the call to the normal permission flow.</li><li>The script needs jq installed. Without it, it exits 0 and blocks nothing.</li><li>The grep matches that exact text only, so extend it for variants like <code>rm -fr</code>.</li><li>A hook’s block holds in every permission mode, including bypassPermissions.</li></ul></details><p class="docs">Checked against the official docs on 2026-11-23: <a href="https://code.claude.com/docs/en/memory">Memory</a> · <a href="https://code.claude.com/docs/en/hooks-guide">Hooks guide</a> · <a href="https://code.claude.com/docs/en/permissions">Permissions</a></p></div>
+      </article>
       <article class="slide" id="dont-ask-again" role="tabpanel" aria-labelledby="tab-dont-ask-again" aria-roledescription="slide" style="--accent:#2272B4">
-        <a class="poster" href="https://www.youtube.com/shorts/y0d8X1Lf--s" aria-label="Watch brief 05 on YouTube"><img src="covers/05.jpg" width="360" height="640" alt="" loading="eager"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
+        <a class="poster" href="https://www.youtube.com/shorts/y0d8X1Lf--s" aria-label="Watch brief 05 on YouTube"><img src="covers/05.jpg" width="360" height="640" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
         <div class="meta"><p class="kicker">Brief 05</p><h3>Claude Code’s “Don’t ask again” writes a file</h3></div>
         <p class="take">Each “Yes, and don’t ask again” becomes an allow rule in <code>.claude/settings.local.json</code> at the repo root.</p>
         <div class="body"><p class="lead-in">Check where your approvals went:</p><div class="snip"><div class="snip-head"><span class="path">terminal</span><button class="copy" type="button" data-target="s-dont-ask-again-0">Copy</button></div><pre id="s-dont-ask-again-0"><code># the allow rules you approved

@@ -225,6 +225,49 @@
           "url": "https://code.claude.com/docs/en/settings"
         }
       ]
+    },
+    {
+      "id": "hooks-enforce",
+      "n": "06",
+      "short": "Hooks",
+      "title": "A rule in CLAUDE.md isn’t a rule",
+      "takeaway": "CLAUDE.md is context Claude tries to follow. A PreToolUse hook blocks the action, in every permission mode.",
+      "verified": "2026-11-23",
+      "video": "https://www.youtube.com/shorts/qzJ8n1p0dl4",
+      "cover": "covers/06.jpg",
+      "accent": "#AF52DE",
+      "snippets": [
+        {
+          "file": "06-hooks-enforce/settings.json",
+          "where": ".claude/settings.json",
+          "intro": "Run a check before every Bash command:"
+        },
+        {
+          "file": "06-hooks-enforce/block-rm-rf.sh",
+          "where": ".claude/hooks/block-rm-rf.sh",
+          "intro": "Save it and run `chmod +x` on it. Exit 2 blocks the call and sends your message to Claude."
+        }
+      ],
+      "notes": [
+        "Exit 0 hands the call to the normal permission flow.",
+        "The script needs jq installed. Without it, it exits 0 and blocks nothing.",
+        "The grep matches that exact text only, so extend it for variants like `rm -fr`.",
+        "A hook’s block holds in every permission mode, including bypassPermissions."
+      ],
+      "docs": [
+        {
+          "label": "Memory",
+          "url": "https://code.claude.com/docs/en/memory"
+        },
+        {
+          "label": "Hooks guide",
+          "url": "https://code.claude.com/docs/en/hooks-guide"
+        },
+        {
+          "label": "Permissions",
+          "url": "https://code.claude.com/docs/en/permissions"
+        }
+      ]
     }
   ]
 }

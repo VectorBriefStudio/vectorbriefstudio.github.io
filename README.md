@@ -10,6 +10,8 @@ Copy-paste configs from Vector Brief videos: visual briefs on AI and the systems
 | 02 | Keep the cache warm for an hour | [02-prompt-caching](02-prompt-caching) | [API](https://platform.claude.com/docs/en/build-with-claude/prompt-caching), [Claude Code](https://code.claude.com/docs/en/prompt-caching) |
 | 03 | Parallel agents with worktrees | [03-worktrees](03-worktrees) | [Worktrees](https://code.claude.com/docs/en/worktrees) |
 | 04 | What loads before you type | [04-session-context](04-session-context) | [Context window](https://code.claude.com/docs/en/context-window), [Memory](https://code.claude.com/docs/en/memory) |
+| 05 | Where "don't ask again" approvals go | [05-dont-ask-again](05-dont-ask-again) | [Permissions](https://code.claude.com/docs/en/permissions), [Settings](https://code.claude.com/docs/en/settings) |
+| 06 | CLAUDE.md suggests, a hook enforces | [06-hooks-enforce](06-hooks-enforce) | [Memory](https://code.claude.com/docs/en/memory), [Hooks guide](https://code.claude.com/docs/en/hooks-guide), [Permissions](https://code.claude.com/docs/en/permissions) |
 
 Watch: [YouTube](https://www.youtube.com/@VectorBriefStudio) · [Instagram](https://www.instagram.com/vectorbriefstudio/) · Business: vectorlogic.yt@gmail.com
 
