@@ -14,6 +14,7 @@ Copy-paste configs from Vector Brief videos: visual briefs on AI and the systems
 | 06 | CLAUDE.md suggests, a hook enforces | [06-hooks-enforce](06-hooks-enforce) | [Memory](https://code.claude.com/docs/en/memory), [Hooks guide](https://code.claude.com/docs/en/hooks-guide), [Permissions](https://code.claude.com/docs/en/permissions) |
 | 07 | Subagents save context, not usage | [07-subagents-cost](07-subagents-cost) | [Subagents](https://code.claude.com/docs/en/sub-agents), [Costs](https://code.claude.com/docs/en/costs) |
 | 08 | `/loop` is for this session, not next week | [08-loop-expires](08-loop-expires) | [Scheduled tasks](https://code.claude.com/docs/en/scheduled-tasks), [Desktop scheduled tasks](https://code.claude.com/docs/en/desktop-scheduled-tasks) |
+| 09 | Keep CLAUDE.md under 200 lines | [09-claude-md-size](09-claude-md-size) | [Memory](https://code.claude.com/docs/en/memory), [Skills](https://code.claude.com/docs/en/skills) |
 
 Watch: [YouTube](https://www.youtube.com/@VectorBriefStudio) · [Instagram](https://www.instagram.com/vectorbriefstudio/) · [Facebook](https://www.facebook.com/profile.php?id=61596500894799) · Business: vectorlogic.yt@gmail.com
 

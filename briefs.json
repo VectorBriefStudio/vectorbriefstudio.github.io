@@ -351,6 +351,46 @@
           "url": "https://code.claude.com/docs/en/routines"
         }
       ]
+    },
+    {
+      "id": "claude-md-size",
+      "n": "09",
+      "short": "CLAUDE.md size",
+      "title": "Keep CLAUDE.md under 200 lines",
+      "takeaway": "Longer CLAUDE.md files cost more context and reduce adherence. Keep every-session facts, and move the rest to path-scoped rules and skills.",
+      "verified": "2026-11-25",
+      "video": "https://www.youtube.com/shorts/WPI0KJfYRjo",
+      "cover": "covers/09.jpg",
+      "accent": "#2272B4",
+      "snippets": [
+        {
+          "file": "09-claude-md-size/api.md",
+          "where": ".claude/rules/api.md",
+          "intro": "Move folder-specific rules into a path-scoped rule. It loads only when Claude reads or edits a matching file."
+        },
+        {
+          "file": "09-claude-md-size/check.sh",
+          "where": "terminal",
+          "intro": "Check how long your instruction files are:"
+        }
+      ],
+      "notes": [
+        "`/init` writes a starting CLAUDE.md. If one already exists, it suggests improvements instead of overwriting it.",
+        "Keep CLAUDE.md to facts Claude needs every session: build commands, conventions, project layout and “always do X” rules.",
+        "`@path` imports organize a long file but don’t reduce its context cost. Imported files load with the CLAUDE.md that imports them.",
+        "Turn multi-step procedures into skills. A skill’s body loads only when it’s used.",
+        "If two instructions contradict each other, Claude may pick one arbitrarily. `/doctor prompt-audit` (Claude Code v2.1.283 or later) reports conflicts with proposed edits and changes nothing until you ask."
+      ],
+      "docs": [
+        {
+          "label": "Memory",
+          "url": "https://code.claude.com/docs/en/memory"
+        },
+        {
+          "label": "Skills",
+          "url": "https://code.claude.com/docs/en/skills"
+        }
+      ]
     }
   ]
 }

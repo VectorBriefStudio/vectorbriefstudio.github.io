@@ -120,12 +120,13 @@ footer p{margin:0 0 8px}
       <h2>The kit</h2>
       <div class="ctrl">
         <button type="button" class="prev" aria-label="Previous brief" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <span class="count" aria-live="polite">1 / 8</span>
+        <span class="count" aria-live="polite">1 / 9</span>
         <button type="button" class="next" aria-label="Next brief"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
     <div class="tabs" role="tablist" aria-label="Briefs">
-      <button type="button" role="tab" id="tab-loop-expires" aria-controls="loop-expires" aria-selected="true" style="--accent:#1B3139"><span class="n">08</span>/loop</button>
+      <button type="button" role="tab" id="tab-claude-md-size" aria-controls="claude-md-size" aria-selected="true" style="--accent:#2272B4"><span class="n">09</span>CLAUDE.md size</button>
+      <button type="button" role="tab" id="tab-loop-expires" aria-controls="loop-expires" aria-selected="false" tabindex="-1" style="--accent:#1B3139"><span class="n">08</span>/loop</button>
       <button type="button" role="tab" id="tab-subagents-cost" aria-controls="subagents-cost" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">07</span>Subagents</button>
       <button type="button" role="tab" id="tab-hooks-enforce" aria-controls="hooks-enforce" aria-selected="false" tabindex="-1" style="--accent:#AF52DE"><span class="n">06</span>Hooks</button>
       <button type="button" role="tab" id="tab-dont-ask-again" aria-controls="dont-ask-again" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">05</span>Don’t ask again</button>
@@ -135,8 +136,26 @@ footer p{margin:0 0 8px}
       <button type="button" role="tab" id="tab-xml-tags" aria-controls="xml-tags" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">01</span>XML tags</button>
     </div>
     <div class="track" tabindex="0" aria-label="Briefs: swipe, or use the arrow keys">
+      <article class="slide" id="claude-md-size" role="tabpanel" aria-labelledby="tab-claude-md-size" aria-roledescription="slide" style="--accent:#2272B4">
+        <a class="poster" href="https://www.youtube.com/shorts/WPI0KJfYRjo" aria-label="Watch brief 09 on YouTube"><img src="covers/09.jpg" width="360" height="640" alt="" loading="eager"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
+        <div class="meta"><p class="kicker">Brief 09</p><h3>Keep CLAUDE.md under 200 lines</h3></div>
+        <p class="take">Longer CLAUDE.md files cost more context and reduce adherence. Keep every-session facts, and move the rest to path-scoped rules and skills.</p>
+        <div class="body"><p class="lead-in">Move folder-specific rules into a path-scoped rule. It loads only when Claude reads or edits a matching file.</p><div class="snip"><div class="snip-head"><span class="path">.claude/rules/api.md</span><button class="copy" type="button" data-target="s-claude-md-size-0">Copy</button></div><pre id="s-claude-md-size-0"><code>---
+paths:
+  - &quot;src/api/**/*.ts&quot;
+---
+
+# API rules
+
+- Validate every endpoint input
+- Use the standard error response format</code></pre></div><p class="lead-in">Check how long your instruction files are:</p><div class="snip"><div class="snip-head"><span class="path">terminal</span><button class="copy" type="button" data-target="s-claude-md-size-1">Copy</button></div><pre id="s-claude-md-size-1"><code># line count of every instruction file that loads at session start
+wc -l CLAUDE.md CLAUDE.local.md ~/.claude/CLAUDE.md 2&gt;/dev/null
+
+# then, inside Claude Code: find conflicting or outdated instructions
+# /doctor prompt-audit</code></pre></div><details class="fine"><summary>Fine print</summary><ul><li><code>/init</code> writes a starting CLAUDE.md. If one already exists, it suggests improvements instead of overwriting it.</li><li>Keep CLAUDE.md to facts Claude needs every session: build commands, conventions, project layout and “always do X” rules.</li><li><code>@path</code> imports organize a long file but don’t reduce its context cost. Imported files load with the CLAUDE.md that imports them.</li><li>Turn multi-step procedures into skills. A skill’s body loads only when it’s used.</li><li>If two instructions contradict each other, Claude may pick one arbitrarily. <code>/doctor prompt-audit</code> (Claude Code v2.1.283 or later) reports conflicts with proposed edits and changes nothing until you ask.</li></ul></details><p class="docs">Checked against the official docs on 2026-11-25: <a href="https://code.claude.com/docs/en/memory">Memory</a> · <a href="https://code.claude.com/docs/en/skills">Skills</a></p></div>
+      </article>
       <article class="slide" id="loop-expires" role="tabpanel" aria-labelledby="tab-loop-expires" aria-roledescription="slide" style="--accent:#1B3139">
-        <a class="poster" href="https://www.youtube.com/shorts/b4urAcnbZwo" aria-label="Watch brief 08 on YouTube"><img src="covers/08.jpg" width="360" height="640" alt="" loading="eager"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
+        <a class="poster" href="https://www.youtube.com/shorts/b4urAcnbZwo" aria-label="Watch brief 08 on YouTube"><img src="covers/08.jpg" width="360" height="640" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
         <div class="meta"><p class="kicker">Brief 08</p><h3>/loop is for this session, not next week</h3></div>
         <p class="take"><code>/loop</code> turns a prompt into a cron job that lives inside your current session. For schedules that outlast it, use a Desktop or cloud scheduled task.</p>
         <div class="body"><p class="lead-in">The first runs every 4m 45s. The second lets Claude pick each wait, between 1 minute and 1 hour.</p><div class="snip"><div class="snip-head"><span class="path">Claude Code prompt</span><button class="copy" type="button" data-target="s-loop-expires-0">Copy</button></div><pre id="s-loop-expires-0"><code>/loop 5m check if the deployment finished and tell me what happened
