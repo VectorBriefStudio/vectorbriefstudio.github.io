@@ -12,8 +12,10 @@ Copy-paste configs from Vector Brief videos: visual briefs on AI and the systems
 | 04 | What loads before you type | [04-session-context](04-session-context) | [Context window](https://code.claude.com/docs/en/context-window), [Memory](https://code.claude.com/docs/en/memory) |
 | 05 | Where "don't ask again" approvals go | [05-dont-ask-again](05-dont-ask-again) | [Permissions](https://code.claude.com/docs/en/permissions), [Settings](https://code.claude.com/docs/en/settings) |
 | 06 | CLAUDE.md suggests, a hook enforces | [06-hooks-enforce](06-hooks-enforce) | [Memory](https://code.claude.com/docs/en/memory), [Hooks guide](https://code.claude.com/docs/en/hooks-guide), [Permissions](https://code.claude.com/docs/en/permissions) |
+| 07 | Subagents save context, not usage | [07-subagents-cost](07-subagents-cost) | [Subagents](https://code.claude.com/docs/en/sub-agents), [Costs](https://code.claude.com/docs/en/costs) |
+| 08 | `/loop` is for this session, not next week | [08-loop-expires](08-loop-expires) | [Scheduled tasks](https://code.claude.com/docs/en/scheduled-tasks), [Desktop scheduled tasks](https://code.claude.com/docs/en/desktop-scheduled-tasks) |
 
-Watch: [YouTube](https://www.youtube.com/@VectorBriefStudio) · [Instagram](https://www.instagram.com/vectorbriefstudio/) · Business: vectorlogic.yt@gmail.com
+Watch: [YouTube](https://www.youtube.com/@VectorBriefStudio) · [Instagram](https://www.instagram.com/vectorbriefstudio/) · [Facebook](https://www.facebook.com/profile.php?id=61596500894799) · Business: vectorlogic.yt@gmail.com
 
 ## Adding a brief
 

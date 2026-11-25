@@ -1,0 +1,2 @@
+/loop 5m check if the deployment finished and tell me what happened
+/loop check whether CI passed and address any review comments

@@ -268,6 +268,89 @@
           "url": "https://code.claude.com/docs/en/permissions"
         }
       ]
+    },
+    {
+      "id": "subagents-cost",
+      "n": "07",
+      "short": "Subagents",
+      "title": "Subagents save context, not usage",
+      "takeaway": "A subagent keeps your context clean, but its requests count toward the same usage limits. Give simple ones a cheaper model.",
+      "verified": "2026-11-25",
+      "video": "https://www.youtube.com/shorts/pI_PVISDvYI",
+      "cover": "covers/07.jpg",
+      "accent": "#2272B4",
+      "snippets": [
+        {
+          "file": "07-subagents-cost/test-runner.md",
+          "where": ".claude/agents/test-runner.md",
+          "intro": "Give a simple subagent a cheaper model:"
+        },
+        {
+          "file": "07-subagents-cost/settings.json",
+          "where": ".claude/settings.json",
+          "intro": "Or force one model onto every subagent. Needs Claude Code v2.1.257 or later."
+        }
+      ],
+      "notes": [
+        "With `CLAUDE_CODE_SUBAGENT_MODEL_FORCE` on, the `model` field in each subagent is ignored. Forks still run on your main conversation’s model.",
+        "Run `/tasks` while a subagent works to see which model it runs on.",
+        "On a Pro, Max, Ultra, Team or Enterprise plan, `/usage` shows the share of your usage that went to subagents.",
+        "The 420 and 9,890 token counts in the video are the docs’ illustrative example session. Agent teams in plan mode use about 7x the tokens of a standard session."
+      ],
+      "docs": [
+        {
+          "label": "Subagents",
+          "url": "https://code.claude.com/docs/en/sub-agents"
+        },
+        {
+          "label": "Costs",
+          "url": "https://code.claude.com/docs/en/costs"
+        },
+        {
+          "label": "Context window",
+          "url": "https://code.claude.com/docs/en/context-window"
+        }
+      ]
+    },
+    {
+      "id": "loop-expires",
+      "n": "08",
+      "short": "/loop",
+      "title": "/loop is for this session, not next week",
+      "takeaway": "`/loop` turns a prompt into a cron job that lives inside your current session. For schedules that outlast it, use a Desktop or cloud scheduled task.",
+      "verified": "2026-11-25",
+      "video": "https://www.youtube.com/shorts/b4urAcnbZwo",
+      "cover": "covers/08.jpg",
+      "accent": "#1B3139",
+      "snippets": [
+        {
+          "file": "08-loop-expires/prompts.txt",
+          "where": "Claude Code prompt",
+          "intro": "The first runs every 4m 45s. The second lets Claude pick each wait, between 1 minute and 1 hour."
+        }
+      ],
+      "notes": [
+        "The video says recurring tasks expire after 7 days. Since Claude Code v2.1.330 they run up to 30 days, fire one last time, then delete themselves. Tasks created on older versions keep the 7-day limit.",
+        "`Esc` and `Ctrl+C` don’t stop a fixed-interval loop. Ask Claude to cancel it, for example “cancel the deploy check loop”.",
+        "Tasks fire only while Claude Code is running and idle. A run that comes due while Claude is busy fires once when it’s free, with no catch-up.",
+        "Hourly and daily tasks start 0 to 30 minutes late, by the same amount every run. A `*/5` task starts 15 seconds early instead, before the 5-minute prompt cache expires.",
+        "Closing the terminal stops the loop. Backgrounding the session keeps it running without one.",
+        "A Desktop scheduled task runs on your machine with no open session. A cloud scheduled task runs with your machine off, at most once an hour."
+      ],
+      "docs": [
+        {
+          "label": "Scheduled tasks",
+          "url": "https://code.claude.com/docs/en/scheduled-tasks"
+        },
+        {
+          "label": "Desktop scheduled tasks",
+          "url": "https://code.claude.com/docs/en/desktop-scheduled-tasks"
+        },
+        {
+          "label": "Cloud scheduled tasks",
+          "url": "https://code.claude.com/docs/en/routines"
+        }
+      ]
     }
   ]
 }
