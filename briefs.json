@@ -16,8 +16,8 @@
     {
       "icon": "instagram",
       "label": "Instagram",
-      "sub": "@vectorbriefstudio",
-      "href": "https://www.instagram.com/vectorbriefstudio/"
+      "sub": "@vectorbriefstudios",
+      "href": "https://www.instagram.com/vectorbriefstudios/"
     },
     {
       "icon": "facebook",
@@ -389,6 +389,50 @@
         {
           "label": "Skills",
           "url": "https://code.claude.com/docs/en/skills"
+        }
+      ]
+    },
+    {
+      "id": "fast-mode",
+      "n": "10",
+      "short": "/fast cost",
+      "title": "Claude Code’s /fast has a hidden cost",
+      "takeaway": "Fast mode is up to 2.5x faster at 2x the price per token. Turn it on at the start of a session: mid-conversation, the next request rereads everything uncached at the fast rate.",
+      "verified": "2026-11-25",
+      "video": "https://www.youtube.com/shorts/DN1SfI-Wm1A",
+      "cover": "covers/10.jpg",
+      "accent": "#5856D6",
+      "snippets": [
+        {
+          "file": "10-fast-mode/commands.txt",
+          "where": "Claude Code prompt",
+          "intro": "Turn it on at the start of a session, not mid-way:"
+        },
+        {
+          "file": "10-fast-mode/settings.json",
+          "where": "~/.claude/settings.json",
+          "intro": "Make every session start with fast mode off:"
+        }
+      ],
+      "notes": [
+        "Fast mode prices per million input / output tokens: $8 / $40 on Opus 5.5, $16 / $80 on Fable 5.2, $10 / $50 on Opus 5 and Opus 4.8. That is 2x each model’s standard rate.",
+        "On a Pro, Max, Ultra, Team or Enterprise plan, fast mode bills usage credits only, even with plan usage left. Usage credits must be on, and Team and Enterprise need an Owner to enable fast mode.",
+        "Fast and standard speed keep separate caches. Each later toggle rereads uncached whatever the other speed hasn’t cached, including Claude Code’s own fallback to standard speed after a rate limit.",
+        "The $1.20 and $0.06 in the video are API list prices for one 150,000-token read on Opus 5.5: at least $8 per million uncached (a cache write costs more), 0.05x that as a cache hit. Across a whole session, fast mode from the start also pays 2x on every earlier turn.",
+        "Fast mode for Opus 4.8 is removed on November 30, 2026. Opus 5.5 needs Claude Code v2.1.280 or later."
+      ],
+      "docs": [
+        {
+          "label": "Fast mode",
+          "url": "https://code.claude.com/docs/en/fast-mode"
+        },
+        {
+          "label": "Prompt caching (Claude Code)",
+          "url": "https://code.claude.com/docs/en/prompt-caching"
+        },
+        {
+          "label": "Pricing",
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing"
         }
       ]
     }

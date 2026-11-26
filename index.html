@@ -109,7 +109,7 @@ footer p{margin:0 0 8px}
     <p class="lede">Every config from the videos, ready to copy. Each one is checked against the official docs on the date shown.</p>
     <nav class="links" aria-label="Channels">
       <a href="https://www.youtube.com/@VectorBriefStudio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg><b>YouTube</b><span>@VectorBriefStudio</span></a>
-      <a href="https://www.instagram.com/vectorbriefstudio/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg><b>Instagram</b><span>@vectorbriefstudio</span></a>
+      <a href="https://www.instagram.com/vectorbriefstudios/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg><b>Instagram</b><span>@vectorbriefstudios</span></a>
       <a href="https://www.facebook.com/profile.php?id=61596500894799"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4M6 4h11l-2.5 4L17 12H6"/></svg><b>Facebook</b><span>Vector Brief</span></a>
       <a href="https://github.com/VectorBriefStudio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><b>GitHub</b><span>VectorBriefStudio</span></a>
       <a href="mailto:vectorlogic.yt@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg><b>Email</b><span>business</span></a>
@@ -120,12 +120,13 @@ footer p{margin:0 0 8px}
       <h2>The kit</h2>
       <div class="ctrl">
         <button type="button" class="prev" aria-label="Previous brief" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <span class="count" aria-live="polite">1 / 9</span>
+        <span class="count" aria-live="polite">1 / 10</span>
         <button type="button" class="next" aria-label="Next brief"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
     <div class="tabs" role="tablist" aria-label="Briefs">
-      <button type="button" role="tab" id="tab-claude-md-size" aria-controls="claude-md-size" aria-selected="true" style="--accent:#2272B4"><span class="n">09</span>CLAUDE.md size</button>
+      <button type="button" role="tab" id="tab-fast-mode" aria-controls="fast-mode" aria-selected="true" style="--accent:#5856D6"><span class="n">10</span>/fast cost</button>
+      <button type="button" role="tab" id="tab-claude-md-size" aria-controls="claude-md-size" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">09</span>CLAUDE.md size</button>
       <button type="button" role="tab" id="tab-loop-expires" aria-controls="loop-expires" aria-selected="false" tabindex="-1" style="--accent:#1B3139"><span class="n">08</span>/loop</button>
       <button type="button" role="tab" id="tab-subagents-cost" aria-controls="subagents-cost" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">07</span>Subagents</button>
       <button type="button" role="tab" id="tab-hooks-enforce" aria-controls="hooks-enforce" aria-selected="false" tabindex="-1" style="--accent:#AF52DE"><span class="n">06</span>Hooks</button>
@@ -136,8 +137,19 @@ footer p{margin:0 0 8px}
       <button type="button" role="tab" id="tab-xml-tags" aria-controls="xml-tags" aria-selected="false" tabindex="-1" style="--accent:#2272B4"><span class="n">01</span>XML tags</button>
     </div>
     <div class="track" tabindex="0" aria-label="Briefs: swipe, or use the arrow keys">
+      <article class="slide" id="fast-mode" role="tabpanel" aria-labelledby="tab-fast-mode" aria-roledescription="slide" style="--accent:#5856D6">
+        <a class="poster" href="https://www.youtube.com/shorts/DN1SfI-Wm1A" aria-label="Watch brief 10 on YouTube"><img src="covers/10.jpg" width="360" height="640" alt="" loading="eager"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
+        <div class="meta"><p class="kicker">Brief 10</p><h3>Claude Code’s /fast has a hidden cost</h3></div>
+        <p class="take">Fast mode is up to 2.5x faster at 2x the price per token. Turn it on at the start of a session: mid-conversation, the next request rereads everything uncached at the fast rate.</p>
+        <div class="body"><p class="lead-in">Turn it on at the start of a session, not mid-way:</p><div class="snip"><div class="snip-head"><span class="path">Claude Code prompt</span><button class="copy" type="button" data-target="s-fast-mode-0">Copy</button></div><pre id="s-fast-mode-0"><code>/fast on     turn it on as the session starts, not mid-way
+/fast        check whether it's on
+/fast off    turn it off
+/model       switch Opus 4.8 to Opus 5.5 (fast mode stays on)</code></pre></div><p class="lead-in">Make every session start with fast mode off:</p><div class="snip"><div class="snip-head"><span class="path">~/.claude/settings.json</span><button class="copy" type="button" data-target="s-fast-mode-1">Copy</button></div><pre id="s-fast-mode-1"><code>{
+  &quot;fastModePerSessionOptIn&quot;: true
+}</code></pre></div><details class="fine"><summary>Fine print</summary><ul><li>Fast mode prices per million input / output tokens: $8 / $40 on Opus 5.5, $16 / $80 on Fable 5.2, $10 / $50 on Opus 5 and Opus 4.8. That is 2x each model’s standard rate.</li><li>On a Pro, Max, Ultra, Team or Enterprise plan, fast mode bills usage credits only, even with plan usage left. Usage credits must be on, and Team and Enterprise need an Owner to enable fast mode.</li><li>Fast and standard speed keep separate caches. Each later toggle rereads uncached whatever the other speed hasn’t cached, including Claude Code’s own fallback to standard speed after a rate limit.</li><li>The $1.20 and $0.06 in the video are API list prices for one 150,000-token read on Opus 5.5: at least $8 per million uncached (a cache write costs more), 0.05x that as a cache hit. Across a whole session, fast mode from the start also pays 2x on every earlier turn.</li><li>Fast mode for Opus 4.8 is removed on November 30, 2026. Opus 5.5 needs Claude Code v2.1.280 or later.</li></ul></details><p class="docs">Checked against the official docs on 2026-11-25: <a href="https://code.claude.com/docs/en/fast-mode">Fast mode</a> · <a href="https://code.claude.com/docs/en/prompt-caching">Prompt caching (Claude Code)</a> · <a href="https://platform.claude.com/docs/en/about-claude/pricing">Pricing</a></p></div>
+      </article>
       <article class="slide" id="claude-md-size" role="tabpanel" aria-labelledby="tab-claude-md-size" aria-roledescription="slide" style="--accent:#2272B4">
-        <a class="poster" href="https://www.youtube.com/shorts/WPI0KJfYRjo" aria-label="Watch brief 09 on YouTube"><img src="covers/09.jpg" width="360" height="640" alt="" loading="eager"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
+        <a class="poster" href="https://www.youtube.com/shorts/WPI0KJfYRjo" aria-label="Watch brief 09 on YouTube"><img src="covers/09.jpg" width="360" height="640" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Watch</span></a>
         <div class="meta"><p class="kicker">Brief 09</p><h3>Keep CLAUDE.md under 200 lines</h3></div>
         <p class="take">Longer CLAUDE.md files cost more context and reduce adherence. Keep every-session facts, and move the rest to path-scoped rules and skills.</p>
         <div class="body"><p class="lead-in">Move folder-specific rules into a path-scoped rule. It loads only when Claude reads or edits a matching file.</p><div class="snip"><div class="snip-head"><span class="path">.claude/rules/api.md</span><button class="copy" type="button" data-target="s-claude-md-size-0">Copy</button></div><pre id="s-claude-md-size-0"><code>---

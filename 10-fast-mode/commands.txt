@@ -1,0 +1,4 @@
+/fast on     turn it on as the session starts, not mid-way
+/fast        check whether it's on
+/fast off    turn it off
+/model       switch Opus 4.8 to Opus 5.5 (fast mode stays on)
